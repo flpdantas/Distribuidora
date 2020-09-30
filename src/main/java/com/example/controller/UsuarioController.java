@@ -16,44 +16,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.modelo.Produto;
-import com.example.repository.ProdutoRepository;
-
-
+import com.example.modelo.Usuario;
+import com.example.repository.UsuarioRepository;
 
 /**
  * @author Filipe Soares Dantas
  *
  */
-
 @RestController
-@RequestMapping("/produtos")
-public class ProdutoController {
+@RequestMapping("/usuarios")
+public class UsuarioController {
 	
 	@Autowired
-	private ProdutoRepository produtoRepository;
+	private UsuarioRepository usuarioRepository;
 
 	@PostMapping
-	public Produto salvarProduto(@RequestBody Produto produto) {
-		return this.produtoRepository.save(produto);
+	public Usuario salvarUsuario(@RequestBody Usuario usuario) {
+		return this.usuarioRepository.save(usuario);
 	}
 
 	@GetMapping
-	public List<Produto> listarProduto() {
-		return this.produtoRepository.findAll();
+	public List<Usuario> listarUsuario() {
+		return this.usuarioRepository.findAll();
 	}
 
 	@DeleteMapping("/{id}")
-	public void deletarProduto(@PathVariable Long id) {
-		this.produtoRepository.deleteById(id);
+	public void deletarUsuario(@PathVariable Long id) {
+		this.usuarioRepository.deleteById(id);
 	}
 
 	@PutMapping("/{id}")
-	public Produto editarProduto(@PathVariable Long id, @RequestBody Produto produto) {
-		Produto produtoEditar = this.produtoRepository.findById(id).get();
-		BeanUtils.copyProperties(produto, produtoEditar, "id");
-		this.produtoRepository.save(produtoEditar);
-		return produtoEditar;
+	public Usuario editarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+		Usuario usuarioEditar = this.usuarioRepository.findById(id).get();
+		BeanUtils.copyProperties(usuario, usuarioEditar, "id");
+		this.usuarioRepository.save(usuarioEditar);
+		return usuarioEditar;
 	}
 
 }
