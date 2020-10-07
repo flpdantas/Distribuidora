@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.controller;
+package com.example.distribuidora.controller;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.modelo.Usuario;
-import com.example.repository.UsuarioRepository;
+import com.example.distribuidora.modelo.Usuario;
+import com.example.distribuidora.repository.UsuarioRepository;
 
 /**
  * @author Filipe Soares Dantas

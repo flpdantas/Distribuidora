@@ -1,12 +1,16 @@
 /**
  * 
  */
-package com.example.modelo;
+package com.example.distribuidora.modelo;
+
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -28,10 +32,17 @@ public class Cliente {
 		private Long id;
 		private String nome;
 		private String cpf;
-		private String email;
-		private String telefone;
-		
-	// Gets e Sets
+
+		@OneToMany(mappedBy = "cliente")
+		public List<Contato> contatos;
+
+		@OneToOne
+		public Endereco endereco;
+
+		@OneToMany(mappedBy = "cliente")
+		private List<Produto> produtos;
+
+		// Gets e Sets
 		public Long getId() {
 			return id;
 		}
@@ -56,30 +67,12 @@ public class Cliente {
 			this.cpf = cpf;
 		}
 
-		public String getEmail() {
-			return email;
+		public List<Contato> getContatos() {
+			return contatos;
 		}
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
-
-		public String getTelefone() {
-			return telefone;
-		}
-
-		public void setTelefone(String telefone) {
-			this.telefone = telefone;
-		}
-
-
-		// Construtor
-		public Cliente(String nome, String cpf, String email, String telefone) {
-			super();
-			this.nome = nome;
-			this.cpf = cpf;
-			this.email = email;
-			this.telefone = telefone;
+		public void setContatos(List<Contato> contatos) {
+			this.contatos = contatos;
 		}
 
 

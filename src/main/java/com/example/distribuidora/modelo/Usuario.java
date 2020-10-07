@@ -1,12 +1,13 @@
 /**
  * 
  */
-package com.example.modelo;
+package com.example.distribuidora.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -26,6 +27,9 @@ public class Usuario {
 	private Long id;
 	private String login;
 	private String senha;
+
+	@OneToOne
+	private Endereco endereco;
 
 	public Long getId() {
 		return id;
@@ -50,6 +54,15 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 
 
 }

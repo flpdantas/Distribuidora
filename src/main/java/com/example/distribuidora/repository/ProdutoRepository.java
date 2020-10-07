@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.example.repository;
+package com.example.distribuidora.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.modelo.Produto;
+import com.example.distribuidora.modelo.Produto;
 
 /**
  * @author Filipe Soares Dantas
